@@ -12,7 +12,7 @@ function App() {
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_API_KEY}`)
     .then(response => {
       if(!response.ok) {
-        throw Error(`Something went wrong ${city} is not a valid location`)
+        throw Error(`Something went wrong...`)
       }
       return response.json()
     })
