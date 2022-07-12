@@ -16,11 +16,12 @@ code {
 .weather-container {
   width: 100vw;
   height: 100vh;
-  background: url('./img/bg.jpg');
+  background: url('./img/bg.jpg') no-repeat;
+  background-size: cover;
 }
 
 .dim-bg {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.5);
   width: 100vw;
   height: 100vh;
 }
@@ -54,10 +55,15 @@ form input[type=submit] {
   text-align: center;
 }
 
+.date {
+  font-weight: 200;
+  font-size: 1.5rem;
+  margin-bottom: -2.5rem;
+}
+
 .location {
   font-weight: 400;
   font-size: 3rem;
-  margin-top: -0.1rem;
   text-transform: capitalize;
 }
 
@@ -90,7 +96,7 @@ form input[type=submit] {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .elem-type {

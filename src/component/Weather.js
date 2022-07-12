@@ -1,7 +1,10 @@
 import {FaCloudRain, FaLowVision, FaSmog, FaCloudMeatball, FaWind, FaSun, FaCloudSunRain, FaCloudSun, FaCloudMoonRain, FaPooStorm, FaCloud} from 'react-icons/fa'
 
 function Weather(props) {
+    //destructuring props
     const { onSubmit, weather, onChange, city, errMsg } = props
+
+    //rendering weather icon based on weather condition
     const weatherIcon = () => {
         if(weather.weather[0].description === 'clear sky'){
             return (<FaSun />)
@@ -19,6 +22,15 @@ function Weather(props) {
             return (<FaCloudMoonRain />)
         }
     }
+
+    //organizing date object
+    const daysArr = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+    const monthsArr = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
+    const dateObj = new Date()
+    const day = daysArr[dateObj.getDay()]
+    const date = dateObj.getDate()
+    const month = monthsArr[dateObj.getMonth()]
+
   return (
     <div className='dim-bg'>
         <div className='container-weather'>
@@ -27,6 +39,7 @@ function Weather(props) {
             <input type='submit' />
         </form>
             {errMsg && <p>{errMsg}</p>}
+            <h3 className='date'>{`${day}, ${date} ${month}`}</h3>
             <h3 className='location'>{weather.name}</h3>
             <div className='weather-icon'>{weatherIcon()}</div>
             <h4 className='temp'>{Math.round(weather.main.temp - 273.15)}&deg;</h4>
